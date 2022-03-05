@@ -1,0 +1,54 @@
+
+
+t1 = gsap.timeline({paused: true});
+t1.to('.black-circle', {
+  ease: "elastic.out(1, 0.3)", 
+  opacity: 0
+}, 0).to('.hns-black', {
+  ease: "elastic.out(1, 0.3)", 
+  opacity: 0
+}, "-=.8").to('.blue-circle', {
+  ease: "elastic.out(1, 0.3)", 
+  x: -60,
+  y: 218,
+  scale: 7,
+  opacity: 1
+}, "-=.7").to('.orange-circle', {
+  ease: "elastic.out(1, 0.3)", 
+  x: -207,
+  y: -79,
+  scale: 7,
+  opacity: 1
+}, "-=.5").to('.yellow-circle', {
+  ease: "elastic.out(1, 0.3)", 
+  x: 300,
+  y: -79,
+  scale: 7,
+  opacity: 1
+}, "-=.3").to('.hns-white', {
+  ease: "elastic.out(1, 0.3)", 
+  opacity: 1,
+  scale: 1,
+  x: 89,
+}, "-=.2")
+
+
+
+const logo = gsap.timeline({paused:true})
+.to('.hns-black', {
+  rotation: 360,
+  transformOrigin: 'center',
+  repeat: -1,
+  ease: 'none'
+})
+
+
+document.querySelector(".hns-black").onclick = () => t1.play();
+document.querySelector(".hns-white").onclick = () => t1.reverse();
+
+document.querySelector(".hns-black").addEventListener("mouseenter", function(){
+  logo.play();
+})
+document.querySelector(".hns-black").addEventListener("mouseleave", function(){
+  logo.pause(0);
+})
